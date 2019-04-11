@@ -14,6 +14,8 @@ A generic [fluentd][1] output plugin for sending logs to an HTTP endpoint.
       rate_limit_msec 100    # default: 0 = no rate limiting
       raise_on_error  false  # default: true
       authentication  basic  # default: none
+      projectName     hello  # default : none
+      projectVersion  1.0.0  # default : 1.0.0
       username        alice  # default: ''
       password        bobpop # default: '', secret: true
       buffered        true   # default: false. Switch non-buffered/buffered mode
