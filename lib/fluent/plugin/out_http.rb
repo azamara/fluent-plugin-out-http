@@ -47,6 +47,11 @@ class Fluent::Plugin::HTTPOutput < Fluent::Plugin::Output
   config_param :token, :string, :default => ''
   # Switch non-buffered/buffered plugin
   config_param :buffered, :bool, :default => false
+  
+  # Custom Field
+  config_param :projectName, :string, :default => ''
+  config_param :projectVersion, :string, :default => '1.0.0'
+  
 
   config_section :buffer do
     config_set_default :@type, DEFAULT_BUFFER_TYPE
@@ -113,6 +118,9 @@ class Fluent::Plugin::HTTPOutput < Fluent::Plugin::Output
   end
 
   def set_json_body(req, data)
+    data.projectName = @projectName
+    data.projectVersion = @projectVersion
+
     req.body = Yajl.dump(data)
     req['Content-Type'] = 'application/json'
   end
