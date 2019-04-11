@@ -205,6 +205,8 @@ end
 class HTTPOutputTest < HTTPOutputTestBase
   CONFIG = %[
     endpoint_url http://127.0.0.1:#{port}/api/
+    projectName "hello"
+    projectVersion "1.0.0"
   ]
 
   CONFIG_QUERY_PARAM = %[
